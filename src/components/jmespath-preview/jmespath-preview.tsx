@@ -28,7 +28,6 @@ export class JmespathPreview implements ComponentInterface {
   @State() output = '';
 
   runQuery = async ([expression, source]) => {
-    console.info('RUN:QUERY', expression, source)
     if (!expression || !source) return
     try {
       const result = await query(expression, source);
