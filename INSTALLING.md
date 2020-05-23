@@ -8,7 +8,7 @@ Since jmespath-tester (`<jmespath-preview />` web component) is nothing more tha
 Install from NPM (https://www.npmjs.com)
 
 ```sh
-npm i @vanginks/jmespath-tester
+npm i jmespath-tester
 ```
 
 ---
@@ -28,7 +28,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 // jmespath-tester is the name of our made up Web Component that we have
 // published to npm:
-import { defineCustomElements } from '@vanginks/jmespath-tester/loader';
+import { defineCustomElements } from 'jmespath-tester/loader';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
@@ -52,7 +52,7 @@ Using jmespath-tester in other stencil components is as easy as
 #### loading the page config
 
 ```javascript
-import '@vanginks/jmespath-tester'
+import 'jmespath-tester'
 ```
 
 and then in the render function you can use it as normal
@@ -79,7 +79,7 @@ render() {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://unpkg.com/@vanginks/jmespath-tester/dist/jmespath-tester/jmespath-tester.js"></script>
+  <script src="https://unpkg.com/jmespath-tester/dist/jmespath-tester/jmespath-tester.js"></script>
 </head>
 <body>
   <jmespath-preview></jmespath-preview>
