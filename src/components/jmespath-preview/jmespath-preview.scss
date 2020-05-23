@@ -1,0 +1,59 @@
+jmespath-preview {
+  /* Component styles go here */
+  section {
+
+    flex: 1;
+    & h2 {
+      font-family: sans-serif;
+    }
+
+    & div * {
+      font-family: Consolas, Monaco, Menlo, 'Courier New', monospace;
+      font-size: 14px;
+    }
+  }
+
+  & .expression div {
+    margin-bottom: 20px;
+    width: 100%;
+
+    & input {
+      width: inherit;
+      padding: 0.5rem;
+    }
+  }
+
+  & .results {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    & section {
+
+      & div {
+        // max-width: min-content;
+        // min-width: max-content;
+        padding: 0 2%;
+        width: 96%;
+        height: 60vh;
+
+        & pre,
+        & textarea {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          overflow: auto;
+          width: inherit;
+          height: inherit;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+
+  & .output div {
+    padding: 1vw;
+    background-color: #eee;
+  }
+}
