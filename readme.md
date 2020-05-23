@@ -4,4 +4,4 @@
 
 https://glenveegee.github.io/jmespath-tester/
 
-## [INSTALLING CRONKITE](./INSTALLING.md)
+## [INSTALLING `jmespath-tester`](./INSTALLING.md)
