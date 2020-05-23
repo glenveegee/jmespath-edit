@@ -1,6 +1,6 @@
 {
   "name": "jmespath-tester",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A JMESPath expression tester/viewer web component",
   "author": {
     "name": "Glen van Ginkel"
