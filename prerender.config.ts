@@ -5,7 +5,8 @@ export const config: PrerenderConfig = {
     return {
       prettyHtml: true,
       url: "https://github.com/glenveegee/jmespath-tester",
-      title: "JMESPath expression tester"
+      title: "JMESPath expression tester",
+      maxHydrateCount: 0,
     };
   }
 };
