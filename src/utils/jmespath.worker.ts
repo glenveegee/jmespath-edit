@@ -1,5 +1,7 @@
-import jmespath from 'jmespath';
+// import jmespath from 'jmespath';
 
 export const query = async (json: any, expression: string) => {
-  return jmespath.search(expression, json)
+  console.info({json, expression})
+  return [{FOO: "bar"}]
+  // return jmespath.search(expression, json)
 }
