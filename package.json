@@ -5,6 +5,7 @@
   "author": {
     "name": "Glen van Ginkel"
   },
+  "homepage": "https://glenveegee.github.io/jmespath-tester",
   "license": "MPL-2.0",
   "repository": "https://github.com/glenveegee/jmespath-tester",
   "main": "dist/index.js",
