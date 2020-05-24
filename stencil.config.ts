@@ -14,7 +14,10 @@ export const config: Config = {
     },
     {
       type: 'www',
-      serviceWorker: null // disable service workers
+      serviceWorker: null, // disable service workers
+      baseUrl: 'https://glenveegee.github.io/jmespath-tester/',
+      prerenderConfig: './prerender.config.ts',
+
     }
   ],
   plugins: [
