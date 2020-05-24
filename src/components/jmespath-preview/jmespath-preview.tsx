@@ -26,6 +26,7 @@ export class JmespathPreview implements ComponentInterface {
   listener!: Subscription;
 
   @State() output = '';
+  @State() inputError = '';
 
   runQuery = async ([expression, source]) => {
     if (!expression || !source) return
@@ -50,8 +51,10 @@ export class JmespathPreview implements ComponentInterface {
     if (!source) return;
     try {
       this.source$.next(JSON.parse(source))
+      this.inputError = '';
     } catch (error) {
       console.error(error)
+      this.inputError = error.message
     }
   }
 
@@ -77,6 +80,9 @@ export class JmespathPreview implements ComponentInterface {
           <section class="input">
             <h2>SOURCE DATA</h2>
             <div>
+              {
+                this.inputError && <div class='inputWarning'>{this.inputError}</div> || null
+              }
               <textarea value={JSON.stringify(DEFAULT_SOURCE, null, 2)} onInput={this.setSource} />
             </div>
           </section>

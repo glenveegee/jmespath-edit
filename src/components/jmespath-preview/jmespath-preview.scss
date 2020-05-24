@@ -48,6 +48,13 @@ jmespath-preview {
           height: inherit;
           padding: 0.5rem;
         }
+
+        .inputWarning {
+          padding: 0rem 0 0.3rem 1rem;
+          border-left: 4px solid goldenrod;
+          color: goldenrod;
+          max-height: 1rem;
+        }
       }
     }
   }
