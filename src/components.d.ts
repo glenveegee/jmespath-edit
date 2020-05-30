@@ -5,33 +5,53 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { JSONValue, } from "@metrichor/jmespath/dist/types/typings";
 export namespace Components {
-    interface JmespathPreview {
+    interface JmespathEdit {
+        "expression": string;
+        "json": JSONValue;
+        "library": string;
+    }
+    interface JmespathEditDemo {
     }
 }
 declare global {
-    interface HTMLJmespathPreviewElement extends Components.JmespathPreview, HTMLStencilElement {
+    interface HTMLJmespathEditElement extends Components.JmespathEdit, HTMLStencilElement {
     }
-    var HTMLJmespathPreviewElement: {
-        prototype: HTMLJmespathPreviewElement;
-        new (): HTMLJmespathPreviewElement;
+    var HTMLJmespathEditElement: {
+        prototype: HTMLJmespathEditElement;
+        new (): HTMLJmespathEditElement;
+    };
+    interface HTMLJmespathEditDemoElement extends Components.JmespathEditDemo, HTMLStencilElement {
+    }
+    var HTMLJmespathEditDemoElement: {
+        prototype: HTMLJmespathEditDemoElement;
+        new (): HTMLJmespathEditDemoElement;
     };
     interface HTMLElementTagNameMap {
-        "jmespath-preview": HTMLJmespathPreviewElement;
+        "jmespath-edit": HTMLJmespathEditElement;
+        "jmespath-edit-demo": HTMLJmespathEditDemoElement;
     }
 }
 declare namespace LocalJSX {
-    interface JmespathPreview {
+    interface JmespathEdit {
+        "expression"?: string;
+        "json"?: JSONValue;
+        "library"?: string;
+    }
+    interface JmespathEditDemo {
     }
     interface IntrinsicElements {
-        "jmespath-preview": JmespathPreview;
+        "jmespath-edit": JmespathEdit;
+        "jmespath-edit-demo": JmespathEditDemo;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "jmespath-preview": LocalJSX.JmespathPreview & JSXBase.HTMLAttributes<HTMLJmespathPreviewElement>;
+            "jmespath-edit": LocalJSX.JmespathEdit & JSXBase.HTMLAttributes<HTMLJmespathEditElement>;
+            "jmespath-edit-demo": LocalJSX.JmespathEditDemo & JSXBase.HTMLAttributes<HTMLJmespathEditDemoElement>;
         }
     }
 }

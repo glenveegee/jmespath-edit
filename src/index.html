@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
 
-  <script type="module" src="./build/jmespath-tester.esm.js"></script>
-  <script nomodule src="./build/jmespath-tester.js"></script>
+  <script type="module" src="./build/jmespath-edit.esm.js"></script>
+  <script nomodule src="./build/jmespath-edit.js"></script>
 
+  <style type="text/css">
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-
-  <jmespath-preview/>
-
+  <jmespath-edit-demo></jmespath-edit-demo>
 </body>
 </html>

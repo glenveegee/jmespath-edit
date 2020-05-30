@@ -1,6 +1,6 @@
-# Using jmespath-tester in your project
+# Using jmespath-edit in your project
 
-Since jmespath-tester (`<jmespath-preview />` web component) is nothing more than a Stencil component you can get all the information about how to integrate it into your project [here](https://stenciljs.com/docs/overview) where framework integrations are discussed. Otherwise continue reading to see specific worked examples.
+Since jmespath-edit (`<jmespath-edit />` web component) is nothing more than a Stencil component you can get all the information about how to integrate it into your project [here](https://stenciljs.com/docs/overview) where framework integrations are discussed. Otherwise continue reading to see specific worked examples.
 
 
 ## Installation
@@ -8,7 +8,7 @@ Since jmespath-tester (`<jmespath-preview />` web component) is nothing more tha
 Install from NPM (https://www.npmjs.com)
 
 ```sh
-npm i jmespath-tester
+npm i jmespath-edit
 ```
 
 ---
@@ -26,9 +26,9 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-// jmespath-tester is the name of our made up Web Component that we have
+// jmespath-edit is the name of our made up Web Component that we have
 // published to npm:
-import { defineCustomElements } from 'jmespath-tester/loader';
+import { defineCustomElements } from 'jmespath-edit/loader';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
@@ -40,19 +40,19 @@ This will create a custom tag in scope of the React app and so can be used like 
 ```javascript
 import React from 'react';
 
-export default () => <jmespath-preview />;
+export default () => <jmespath-edit />;
 ```
 
 ---
 
 ### Stencil
 
-Using jmespath-tester in other stencil components is as easy as
+Using jmespath-edit in other stencil components is as easy as
 
 #### loading the page config
 
 ```javascript
-import 'jmespath-tester'
+import 'jmespath-edit'
 ```
 
 and then in the render function you can use it as normal
@@ -62,7 +62,7 @@ and then in the render function you can use it as normal
 render() {
   return (
     <div>
-      <jmespath-preview />
+      <jmespath-edit />
     </div>
   )
 }
@@ -79,10 +79,10 @@ render() {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://unpkg.com/jmespath-tester/dist/jmespath-tester/jmespath-tester.js"></script>
+  <script src="https://unpkg.com/jmespath-edit/dist/jmespath-edit/jmespath-edit.js"></script>
 </head>
 <body>
-  <jmespath-preview></jmespath-preview>
+  <jmespath-edit></jmespath-edit>
 </body>
 </html>
 ```

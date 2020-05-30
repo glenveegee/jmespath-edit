@@ -4,8 +4,8 @@ export const config: PrerenderConfig = {
   hydrateOptions(url) {
     return {
       prettyHtml: true,
-      url: "https://github.com/glenveegee/jmespath-tester",
-      title: "JMESPath expression tester",
+      url: "https://github.com/glenveegee/jmespath-edit",
+      title: "JMESPath expression editor",
       maxHydrateCount: 0,
     };
   }

@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'jmespath-tester',
+  namespace: 'jmespath-edit',
   taskQueue: 'async',
   outputTargets: [
     {
@@ -15,7 +15,7 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
-      baseUrl: 'https://glenveegee.github.io/jmespath-tester/',
+      baseUrl: 'https://glenveegee.github.io/jmespath-edit/',
       prerenderConfig: './prerender.config.ts',
     }
   ],

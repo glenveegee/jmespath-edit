@@ -1,29 +1,29 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
-import { JmespathPreview } from './jmespath-preview';
+import { JmespathEdit } from './jmespath-edit';
 
-describe('jmespath-preview', () => {
-  // let rootInst: JmespathPreview;
-  let rootEl: HTMLJmespathPreviewElement;
+describe('jmespath-edit', () => {
+  // let rootInst: JmespathEdit;
+  let rootEl: HTMLJmespathEditElement;
   let page: SpecPage;
 
   beforeEach(async () => {
     page = await newSpecPage({
-      components: [JmespathPreview],
-      html: '<jmespath-preview></jmespath-preview>',
+      components: [JmespathEdit],
+      html: '<jmespath-edit></jmespath-edit>',
     });
     // rootInst = page.rootInstance;
-    rootEl = page.root as HTMLJmespathPreviewElement;
+    rootEl = page.root as HTMLJmespathEditElement;
   });
 
   describe('sanity', () => {
     it('builds', () => {
-      expect(new JmespathPreview()).toBeTruthy();
+      expect(new JmespathEdit()).toBeTruthy();
     });
   });
 
-//   describe('render', () => {
-//     it('renders default datasource and query', () => {
-//       expect((rootEl.querySelector('.expression div input') as HTMLInputElement).value).toEqualText(`locations[?state == 'WA'].name | sort(@) | {WashingtonCities: join(', ', @)}`)
+  describe('render', () => {
+    it('renders default datasource and query', () => {
+      expect((rootEl.querySelector('.expression div input') as HTMLInputElement).value).toEqualText(`locations[?state == 'WA'].name | sort(@) | {WashingtonCities: join(', ', @)}`)
 //       expect((rootEl.querySelector('.results .input div textarea') as HTMLTextAreaElement)).toEqualLightHtml(`<textarea value=\"{
 //   &quot;locations&quot;: [
 //     {
@@ -47,6 +47,6 @@ describe('jmespath-preview', () => {
 //       expect((rootEl.querySelector('.results .output div pre') as HTMLPreElement)).toEqualText(`{
 //   "WashingtonCities": "Bellevue, Olympia, Seattle"
 // }`)
-//     });
-//   });
+    });
+  });
 });

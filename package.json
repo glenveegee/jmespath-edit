@@ -1,13 +1,13 @@
 {
-  "name": "jmespath-tester",
-  "version": "0.0.2",
-  "description": "A JMESPath expression tester/viewer web component",
+  "name": "jmespath-edit",
+  "version": "0.0.4",
+  "description": "A JMESPath expression editor and preview web component",
   "author": {
     "name": "Glen van Ginkel"
   },
-  "homepage": "https://glenveegee.github.io/jmespath-tester",
+  "homepage": "https://glenveegee.github.io/jmespath-edit",
   "license": "MPL-2.0",
-  "repository": "https://github.com/glenveegee/jmespath-tester",
+  "repository": "https://github.com/glenveegee/jmespath-edit",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -15,7 +15,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/jmespath-tester/jmespath-tester.js",
+  "unpkg": "dist/jmespath-edit/jmespath-edit.js",
   "files": [
     "dist/",
     "loader/"
@@ -38,6 +38,8 @@
     "puppeteer": "2.1.1"
   },
   "dependencies": {
+    "@metrichor/jmespath": "^0.1.1",
+    "@metrichor/jmespath-plus": "0.0.1",
     "jmespath": "^0.15.0",
     "rxjs": "^6.5.5"
   }
