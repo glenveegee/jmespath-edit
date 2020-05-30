@@ -6,8 +6,8 @@ import {query as JMESPathPlusQuery} from '../../utils/jmespath-plus';
 import { JSONValue } from '@metrichor/jmespath/dist/types/typings';
 
 @Component({
-    tag: 'jmespath-edit',
-    styleUrl: 'jmespath-edit.scss',
+  styleUrl: 'jmespath-edit.scss',
+  tag: 'jmespath-edit',
 })
 export class JmespathEdit implements ComponentInterface {
 
@@ -29,6 +29,20 @@ export class JmespathEdit implements ComponentInterface {
   updateLibraryHandler(newLibrary) {
     if (newLibrary) {
       this.library$.next(newLibrary)
+    }
+  }
+
+  @Watch('expression')
+  updateExpressionHandler(newExpression) {
+    if (newExpression) {
+      this.expression$.next(newExpression)
+    }
+  }
+
+  @Watch('json')
+  updateSourceHandler(newSource) {
+    if (newSource) {
+      this.source$.next(newSource)
     }
   }
 
