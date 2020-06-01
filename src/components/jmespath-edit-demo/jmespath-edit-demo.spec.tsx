@@ -24,13 +24,19 @@ describe('jmespath-edit-demo', () => {
             <option selected="" value="@metrichor/jmespath-plus">
               @metrichor/jmespath-plus
             </option>
+            <option value="@metrichor/jmespath">
+              @metrichor/jmespath
+            </option>
+            <option value="jmespath-plus">
+              jmespath-plus
+            </option>
             <option value="jmespath">
               jmespath
             </option>
           </select>
         </div>
       </div>
-      <jmespath-edit expression="locations[?state == 'WA'].name | sort(@) | {WashingtonCities: join(', ', @)}" library="@metrichor/jmespath-plus"></jmespath-edit>
+      <jmespath-edit expression="locations[?state == 'WA'].[name, state]._fromPairs(@)" library="@metrichor/jmespath-plus"></jmespath-edit>
     </jmespath-edit-demo>
     `);
   });

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { JSONValue, } from "@metrichor/jmespath/dist/types/typings";
+import { JSONValue } from "@metrichor/jmespath/dist/types/typings";
 export namespace Components {
     interface JmespathEdit {
         "expression": string;

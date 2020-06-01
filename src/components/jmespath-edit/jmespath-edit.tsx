@@ -3,6 +3,8 @@ import { Component, ComponentInterface, State, Host, h, Prop, Watch } from '@ste
 import {BehaviorSubject, combineLatest, Subscription} from 'rxjs';
 import {query as JMESPathQuery} from '../../utils/jmespath';
 import {query as JMESPathPlusQuery} from '../../utils/jmespath-plus';
+import {query as MetrichorJMESPathPlusQuery} from '../../utils/metrichor/jmespath-plus';
+import {query as MetrichorJMESPathQuery} from '../../utils/metrichor/jmespath';
 import { JSONValue } from '@metrichor/jmespath/dist/types/typings';
 
 @Component({
@@ -46,10 +48,26 @@ export class JmespathEdit implements ComponentInterface {
     }
   }
 
+  runLibrarySpecificQuery = async (expression: string, source: JSONValue, library: string): Promise<JSONValue> => {
+    switch (library) {
+      case 'jmespath':
+        return JMESPathQuery(expression, source);
+      case '@metrichor/jmespath-plus':
+        return MetrichorJMESPathPlusQuery(expression, source)
+      case '@metrichor/jmespath':
+        return MetrichorJMESPathQuery(expression, source)
+      case 'jmespath-plus':
+        return JMESPathPlusQuery(expression, source)
+      default:
+        return JMESPathQuery(expression, source);
+    }
+    return null
+  }
+
   runQuery = async ([expression, source, library]: [string, JSONValue, string]) => {
     if (!expression || !source) return
     try {
-      const result = library === 'jmespath' ? await JMESPathQuery(source, expression) : await JMESPathPlusQuery(expression, source);
+      const result = await this.runLibrarySpecificQuery(expression, source, library);
       this.output = JSON.stringify(result, null, 2)
     } catch (error) {
       this.output = error.message
