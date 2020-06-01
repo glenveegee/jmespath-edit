@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npm run build:prerender
+      - run: npm run test
       -
         name: Deploy to GitHub Pages
         if: success()

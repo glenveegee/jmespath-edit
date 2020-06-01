@@ -26,37 +26,37 @@ export class JmespathEdit implements ComponentInterface {
   @State() inputError = '';
 
   @Watch('library')
-  updateLibraryHandler(newLibrary) {
+  updateLibraryHandler(newLibrary: string) {
     if (newLibrary) {
       this.library$.next(newLibrary)
     }
   }
 
   @Watch('expression')
-  updateExpressionHandler(newExpression) {
+  updateExpressionHandler(newExpression: string) {
     if (newExpression) {
       this.expression$.next(newExpression)
     }
   }
 
   @Watch('json')
-  updateSourceHandler(newSource) {
+  updateSourceHandler(newSource: JSONValue) {
     if (newSource) {
       this.source$.next(newSource)
     }
   }
 
-  runQuery = async ([expression, source, library]) => {
+  runQuery = async ([expression, source, library]: [string, JSONValue, string]) => {
     if (!expression || !source) return
     try {
-      const result = library === 'jmespath' ? await JMESPathQuery(expression, source) : await JMESPathPlusQuery(expression, source);
+      const result = library === 'jmespath' ? await JMESPathQuery(source, expression) : await JMESPathPlusQuery(expression, source);
       this.output = JSON.stringify(result, null, 2)
     } catch (error) {
       this.output = error.message
     }
   }
 
-  coerceJSON = (json): JSONValue => {
+  coerceJSON = (json: JSONValue): JSONValue => {
     if (!json) return json;
     if (typeof json === 'string') {
       try {
@@ -79,7 +79,7 @@ export class JmespathEdit implements ComponentInterface {
     this.listener.unsubscribe()
   }
 
-  setSource = (e) => {
+  setSource = (e: any) => {
     const source = e.target.value;
     if (!source) return;
     try {
@@ -91,7 +91,7 @@ export class JmespathEdit implements ComponentInterface {
     }
   }
 
-  setExpression = (e) => {
+  setExpression = (e: any) => {
     const expression = e.target.value;
     if (expression) {
       this.expression$.next(expression)

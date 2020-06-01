@@ -26,12 +26,13 @@
     "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "build:prerender": "stencil build --prerender"
+    "build:prerender": "rm -rf ./www && stencil build --prerender"
   },
   "devDependencies": {
     "@stencil/core": "^1.13.0",
     "@stencil/sass": "^1.3.1",
     "@types/jest": "24.9.1",
+    "@types/jmespath": "^0.15.0",
     "@types/puppeteer": "2.0.1",
     "jest": "24.9.0",
     "jest-cli": "24.9.0",

@@ -1,26 +1,39 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "declaration": false,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "h",
     "lib": [
-      "dom",
-      "es2017"
+      "es2017",
+      "dom"
     ],
-    "moduleResolution": "node",
     "module": "esnext",
-    "target": "es2017",
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "jsx": "react",
-    "jsxFactory": "h"
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es2017",
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@metrichor/jmespath-plus/dist/types"
+    ]
   },
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "src",
     "types/jsx.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
   ]
 }
