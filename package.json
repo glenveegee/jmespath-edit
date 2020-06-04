@@ -1,6 +1,6 @@
 {
   "name": "jmespath-edit",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A JMESPath expression editor and preview web component",
   "author": {
     "name": "Glen van Ginkel"
