@@ -61,7 +61,6 @@ export class JmespathEdit implements ComponentInterface {
       default:
         return JMESPathQuery(expression, source);
     }
-    return null
   }
 
   runQuery = async ([expression, source, library]: [string, JSONValue, string]) => {

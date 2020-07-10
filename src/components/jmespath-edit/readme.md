@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                                                                                     | Default |
-| ------------ | ------------ | ----------- | ---------------------------------------------------------------------------------------- | ------- |
-| `expression` | `expression` |             | `string`                                                                                 | `''`    |
-| `json`       | `json`       |             | `JSONValue[] \| boolean \| null \| number \| string \| { [member: string]: JSONValue; }` | `null`  |
+| Property     | Attribute    | Description | Type                                                                             | Default |
+| ------------ | ------------ | ----------- | -------------------------------------------------------------------------------- | ------- |
+| `expression` | `expression` |             | `string`                                                                         | `''`    |
+| `json`       | `json`       |             | `JSONValue[] \| boolean \| number \| string \| { [member: string]: JSONValue; }` | `null`  |
 
 
 ## Shadow Parts

@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                                                                                     | Default                      |
-| ------------ | ------------ | ----------- | ---------------------------------------------------------------------------------------- | ---------------------------- |
-| `expression` | `expression` |             | `string`                                                                                 | `''`                         |
-| `json`       | `json`       |             | `JSONValue[] \| boolean \| null \| number \| string \| { [member: string]: JSONValue; }` | `null`                       |
-| `library`    | `library`    |             | `string`                                                                                 | `'@metrichor/jmespath-plus'` |
+| Property     | Attribute    | Description | Type                                                                             | Default                      |
+| ------------ | ------------ | ----------- | -------------------------------------------------------------------------------- | ---------------------------- |
+| `expression` | `expression` |             | `string`                                                                         | `''`                         |
+| `json`       | `json`       |             | `JSONValue[] \| boolean \| number \| string \| { [member: string]: JSONValue; }` | `null`                       |
+| `library`    | `library`    |             | `string`                                                                         | `'@metrichor/jmespath-plus'` |
 
 
 ## Dependencies
