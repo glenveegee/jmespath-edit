@@ -1,0 +1,73 @@
+jmespath-edit-compare {
+  /* Component styles go here */
+  padding: 1%;
+  width: 98%;
+  display: block;
+
+  section {
+
+    flex: 1;
+    & h2 {
+      font-family: sans-serif;
+    }
+
+    & div * {
+      font-family: Consolas, Monaco, Menlo, 'Courier New', monospace;
+      font-size: 14px;
+    }
+  }
+
+  & .expression div {
+    margin-bottom: 20px;
+    width: inherit;
+
+    & input {
+      width: 100%;
+      padding: 1%;
+      box-sizing: border-box;
+    }
+  }
+
+  & .results {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    & section {
+
+      & div {
+        // max-width: min-content;
+        // min-width: max-content;
+        // padding: 0 0.5rem;
+        width: calc(100% - 0.5rem);
+        height: 60vh;
+        box-sizing: border-box;
+
+        & pre,
+        & textarea {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          overflow: auto;
+          width: inherit;
+          height: inherit;
+          padding: 0.5rem;
+        }
+
+        .inputWarning {
+          padding: 0rem 0 0.3rem 1rem;
+          border-left: 4px solid goldenrod;
+          color: goldenrod;
+          max-height: 1rem;
+        }
+      }
+    }
+  }
+
+  & .output div {
+    // padding: 1vw;
+    background-color: #eee;
+    // box-sizing: content-box;
+  }
+}
