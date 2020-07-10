@@ -15,12 +15,12 @@
 
 ## Shadow Parts
 
-| Part                                   | Description |
-| -------------------------------------- | ----------- |
-| `"jmespath-expression"`                |             |
-| `"jmespath-expression-results"`        |             |
-| `"jmespath-expression-results-input"`  |             |
-| `"jmespath-expression-results-output"` |             |
+| Part               | Description |
+| ------------------ | ----------- |
+| `"expression"`     |             |
+| `"results"`        |             |
+| `"results-input"`  |             |
+| `"results-output"` |             |
 
 
 ----------------------------------------------

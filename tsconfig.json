@@ -26,8 +26,6 @@
     "target": "es2017",
     "typeRoots": [
       "src/typings",
-      "node_modules/@types",
-      "node_modules/@metrichor/jmespath-plus/dist/types"
     ]
   },
   "exclude": [
