@@ -1,5 +1,5 @@
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
-import { JmespathEdit } from './jmespath-edit';
+import { JmespathEdit } from '../jmespath-edit';
 
 describe('jmespath-edit', () => {
   // let rootInst: JmespathEdit;
@@ -13,12 +13,6 @@ describe('jmespath-edit', () => {
     });
     // rootInst = page.rootInstance;
     rootEl = page.root as HTMLJmespathEditElement;
-  });
-
-  describe('sanity', () => {
-    it('builds', () => {
-      expect(new JmespathEdit()).toBeTruthy();
-    });
   });
 
   describe('render', () => {
