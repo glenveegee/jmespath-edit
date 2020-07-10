@@ -1,7 +1,8 @@
 import { Component, ComponentInterface, State, Host, h, Prop, Watch } from '@stencil/core';
 
-import {BehaviorSubject, combineLatest, Subscription} from 'rxjs';
-import {query} from '../../utils/metrichor/jmespath-plus';
+import {BehaviorSubject, combineLatest, Subscription, from, of} from 'rxjs';
+import { filter, switchMap, catchError, tap } from 'rxjs/operators';
+import { query } from '../../utils/metrichor/jmespath-plus';
 import { JSONValue } from '@metrichor/jmespath/dist/types/typings';
 
 @Component({
@@ -12,10 +13,17 @@ import { JSONValue } from '@metrichor/jmespath/dist/types/typings';
 export class JmespathEdit implements ComponentInterface {
 
   expression$ = new BehaviorSubject<string>('');
-  source$ = new BehaviorSubject<any>(null);
-  query$ = combineLatest([this.expression$, this.source$]);
+  source$ = new BehaviorSubject<JSONValue>(null);
+  query$ = combineLatest([this.expression$, this.source$]).pipe(
+    filter(([expression, source]) => (!!expression || !!source)),
+    switchMap(([expression, source]) => from(query(expression, source)).pipe(catchError(error => of<string>(error.message)))),
+    tap((result) => {
+      this.output = JSON.stringify(result, null, 2)
+    }),
+  );
 
   listener!: Subscription;
+
   @Prop() expression = '';
   @Prop() json: JSONValue = null;
 
@@ -36,20 +44,6 @@ export class JmespathEdit implements ComponentInterface {
     }
   }
 
-  runLibrarySpecificQuery = async (expression: string, source: JSONValue): Promise<JSONValue> => {
-    return query(expression, source)
-  }
-
-  runQuery = async ([expression, source]: [string, JSONValue]) => {
-    if (!expression || !source) return
-    try {
-      const result = await this.runLibrarySpecificQuery(expression, source);
-      this.output = JSON.stringify(result, null, 2)
-    } catch (error) {
-      this.output = error.message
-    }
-  }
-
   coerceJSON = (json: JSONValue): JSONValue => {
     if (!json) return json;
     if (typeof json === 'string') {
@@ -63,7 +57,7 @@ export class JmespathEdit implements ComponentInterface {
   }
 
   componentWillLoad() {
-    this.listener = this.query$.subscribe(this.runQuery)
+    this.listener = this.query$.subscribe()
     this.expression$.next(this.expression);
     this.source$.next(this.coerceJSON(this.json));
   }
@@ -86,9 +80,7 @@ export class JmespathEdit implements ComponentInterface {
 
   setExpression = (e: any) => {
     const expression = e.target.value;
-    if (expression) {
-      this.expression$.next(expression)
-    }
+    expression && this.expression$.next(expression)
   }
 
   render() {
@@ -98,7 +90,7 @@ export class JmespathEdit implements ComponentInterface {
 
     return (
       <Host>
-        <section class="expression" part="jmespath-expression">
+        <section class="expression" part="expression">
           <h2>EXPRESSION</h2>
           <div>
             <input type="text" value={currentExpression}
@@ -106,8 +98,8 @@ export class JmespathEdit implements ComponentInterface {
             />
           </div>
         </section>
-        <div class="results" part="jmespath-expression-results">
-          <section class="input" part="jmespath-expression-results-input">
+        <div class="results" part="results">
+          <section class="input" part="results-input">
             <h2>SOURCE DATA</h2>
             <div>
               {
@@ -116,7 +108,7 @@ export class JmespathEdit implements ComponentInterface {
               <textarea value={currentSource && JSON.stringify(currentSource, null, 2) || ''} onInput={this.setSource} />
             </div>
           </section>
-          <section class="output" part="jmespath-expression-results-output">
+          <section class="output" part="results-output">
             <h2>OUTPUT</h2>
             <div>
               <pre>{this.output}</pre>

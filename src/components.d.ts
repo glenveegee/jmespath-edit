@@ -10,6 +10,10 @@ export namespace Components {
     interface JmespathEdit {
         "expression": string;
         "json": JSONValue;
+    }
+    interface JmespathEditCompare {
+        "expression": string;
+        "json": JSONValue;
         "library": string;
     }
     interface JmespathEditDemo {
@@ -22,6 +26,12 @@ declare global {
         prototype: HTMLJmespathEditElement;
         new (): HTMLJmespathEditElement;
     };
+    interface HTMLJmespathEditCompareElement extends Components.JmespathEditCompare, HTMLStencilElement {
+    }
+    var HTMLJmespathEditCompareElement: {
+        prototype: HTMLJmespathEditCompareElement;
+        new (): HTMLJmespathEditCompareElement;
+    };
     interface HTMLJmespathEditDemoElement extends Components.JmespathEditDemo, HTMLStencilElement {
     }
     var HTMLJmespathEditDemoElement: {
@@ -30,11 +40,16 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "jmespath-edit": HTMLJmespathEditElement;
+        "jmespath-edit-compare": HTMLJmespathEditCompareElement;
         "jmespath-edit-demo": HTMLJmespathEditDemoElement;
     }
 }
 declare namespace LocalJSX {
     interface JmespathEdit {
+        "expression"?: string;
+        "json"?: JSONValue;
+    }
+    interface JmespathEditCompare {
         "expression"?: string;
         "json"?: JSONValue;
         "library"?: string;
@@ -43,6 +58,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "jmespath-edit": JmespathEdit;
+        "jmespath-edit-compare": JmespathEditCompare;
         "jmespath-edit-demo": JmespathEditDemo;
     }
 }
@@ -51,6 +67,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "jmespath-edit": LocalJSX.JmespathEdit & JSXBase.HTMLAttributes<HTMLJmespathEditElement>;
+            "jmespath-edit-compare": LocalJSX.JmespathEditCompare & JSXBase.HTMLAttributes<HTMLJmespathEditCompareElement>;
             "jmespath-edit-demo": LocalJSX.JmespathEditDemo & JSXBase.HTMLAttributes<HTMLJmespathEditDemoElement>;
         }
     }
