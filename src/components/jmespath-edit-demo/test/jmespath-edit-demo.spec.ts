@@ -36,7 +36,7 @@ describe('jmespath-edit-demo', () => {
           </select>
         </div>
       </div>
-      <jmespath-edit expression="locations[?state == 'WA'].[name, state]._fromPairs(@)" library="@metrichor/jmespath-plus"></jmespath-edit>
+      <jmespath-edit-compare expression="locations[?state == 'WA'].[name, state]._fromPairs(@)" library="@metrichor/jmespath-plus"></jmespath-edit-compare>
     </jmespath-edit-demo>
     `);
   });
