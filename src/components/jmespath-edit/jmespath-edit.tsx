@@ -1,38 +1,26 @@
 import { Component, ComponentInterface, State, Host, h, Prop, Watch } from '@stencil/core';
 
 import {BehaviorSubject, combineLatest, Subscription} from 'rxjs';
-import {query as JMESPathQuery} from '../../utils/jmespath';
-import {query as JMESPathPlusQuery} from '../../utils/jmespath-plus';
-import {query as MetrichorJMESPathPlusQuery} from '../../utils/metrichor/jmespath-plus';
-import {query as MetrichorJMESPathQuery} from '../../utils/metrichor/jmespath';
+import {query} from '../../utils/metrichor/jmespath-plus';
 import { JSONValue } from '@metrichor/jmespath/dist/types/typings';
 
 @Component({
   styleUrl: 'jmespath-edit.scss',
   tag: 'jmespath-edit',
+  shadow: true,
 })
 export class JmespathEdit implements ComponentInterface {
 
-  library$ = new BehaviorSubject<string>('');
   expression$ = new BehaviorSubject<string>('');
   source$ = new BehaviorSubject<any>(null);
-  query$ = combineLatest([this.expression$, this.source$, this.library$]);
+  query$ = combineLatest([this.expression$, this.source$]);
 
   listener!: Subscription;
-  @Prop() library = '@metrichor/jmespath-plus';
-
   @Prop() expression = '';
   @Prop() json: JSONValue = null;
 
   @State() output = '';
   @State() inputError = '';
-
-  @Watch('library')
-  updateLibraryHandler(newLibrary: string) {
-    if (newLibrary) {
-      this.library$.next(newLibrary)
-    }
-  }
 
   @Watch('expression')
   updateExpressionHandler(newExpression: string) {
@@ -48,26 +36,14 @@ export class JmespathEdit implements ComponentInterface {
     }
   }
 
-  runLibrarySpecificQuery = async (expression: string, source: JSONValue, library: string): Promise<JSONValue> => {
-    switch (library) {
-      case 'jmespath':
-        return JMESPathQuery(expression, source);
-      case '@metrichor/jmespath-plus':
-        return MetrichorJMESPathPlusQuery(expression, source)
-      case '@metrichor/jmespath':
-        return MetrichorJMESPathQuery(expression, source)
-      case 'jmespath-plus':
-        return JMESPathPlusQuery(expression, source)
-      default:
-        return JMESPathQuery(expression, source);
-    }
-    return null
+  runLibrarySpecificQuery = async (expression: string, source: JSONValue): Promise<JSONValue> => {
+    return query(expression, source)
   }
 
-  runQuery = async ([expression, source, library]: [string, JSONValue, string]) => {
+  runQuery = async ([expression, source]: [string, JSONValue]) => {
     if (!expression || !source) return
     try {
-      const result = await this.runLibrarySpecificQuery(expression, source, library);
+      const result = await this.runLibrarySpecificQuery(expression, source);
       this.output = JSON.stringify(result, null, 2)
     } catch (error) {
       this.output = error.message
@@ -90,7 +66,6 @@ export class JmespathEdit implements ComponentInterface {
     this.listener = this.query$.subscribe(this.runQuery)
     this.expression$.next(this.expression);
     this.source$.next(this.coerceJSON(this.json));
-    this.library$.next(this.library);
   }
 
   componentDidUnload() {
@@ -123,7 +98,7 @@ export class JmespathEdit implements ComponentInterface {
 
     return (
       <Host>
-        <section class="expression">
+        <section class="expression" part="jmespath-expression">
           <h2>EXPRESSION</h2>
           <div>
             <input type="text" value={currentExpression}
@@ -131,8 +106,8 @@ export class JmespathEdit implements ComponentInterface {
             />
           </div>
         </section>
-        <div class="results">
-          <section class="input">
+        <div class="results" part="jmespath-expression-results">
+          <section class="input" part="jmespath-expression-results-input">
             <h2>SOURCE DATA</h2>
             <div>
               {
@@ -141,7 +116,7 @@ export class JmespathEdit implements ComponentInterface {
               <textarea value={currentSource && JSON.stringify(currentSource, null, 2) || ''} onInput={this.setSource} />
             </div>
           </section>
-          <section class="output">
+          <section class="output" part="jmespath-expression-results-output">
             <h2>OUTPUT</h2>
             <div>
               <pre>{this.output}</pre>
