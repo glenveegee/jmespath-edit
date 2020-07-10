@@ -9,12 +9,12 @@
 
 ### Depends on
 
-- [jmespath-edit](../jmespath-edit)
+- [jmespath-edit-compare](../jmespath-edit-compare)
 
 ### Graph
 ```mermaid
 graph TD;
-  jmespath-edit-demo --> jmespath-edit
+  jmespath-edit-demo --> jmespath-edit-compare
   style jmespath-edit-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

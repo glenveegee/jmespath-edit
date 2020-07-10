@@ -47,7 +47,7 @@ export class JmespathEditDemo {
             </select>
           </div>
         </div>
-        <jmespath-edit
+        <jmespath-edit-compare
           expression={this.expression}
           json={DEFAULT_SOURCE}
           library={this.library}
