@@ -5,7 +5,7 @@ import {query as JMESPathQuery} from '../../utils/jmespath';
 import {query as JMESPathPlusQuery} from '../../utils/jmespath-plus';
 import {query as MetrichorJMESPathPlusQuery} from '../../utils/metrichor/jmespath-plus';
 import {query as MetrichorJMESPathQuery} from '../../utils/metrichor/jmespath';
-import { JSONValue } from '@metrichor/jmespath/dist/types/typings';
+import { JSONValue } from '@metrichor/jmespath/dist/types';
 
 @Component({
   styleUrl: 'jmespath-edit-compare.scss',
