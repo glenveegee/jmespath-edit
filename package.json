@@ -41,7 +41,7 @@
     "@metrichor/jmespath": "^0.1.5"
   },
   "dependencies": {
-    "@metrichor/jmespath-plus": "^0.0.7",
+    "@metrichor/jmespath-plus": "0.0.8",
     "jmespath": "^0.15.0",
     "jmespath-plus": "^0.1.7",
     "rxjs": "^6.6.2"
