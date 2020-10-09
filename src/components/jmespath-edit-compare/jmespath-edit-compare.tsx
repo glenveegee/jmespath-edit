@@ -92,7 +92,7 @@ export class JmespathEdit implements ComponentInterface {
     this.library$.next(this.library);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.listener.unsubscribe()
   }
 

@@ -62,7 +62,7 @@ export class JmespathEdit implements ComponentInterface {
     this.source$.next(this.coerceJSON(this.json));
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.listener.unsubscribe()
   }
 
