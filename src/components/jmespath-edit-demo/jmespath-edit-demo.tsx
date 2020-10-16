@@ -1,6 +1,6 @@
 import { Component, Host, h, State } from '@stencil/core';
 
-const DEFAULT_EXPRESSION = "locations[?state == 'WA'].[name, state]._fromPairs(@)"
+const DEFAULT_EXPRESSION = "locations[?state == 'WA'].[name, state].{root: $, by_city: _fromPairs(@), function_predicate: _map(@, as_lambda('x => x[0]'))}"
 const DEFAULT_SOURCE = {"locations": [{"name": "Seattle", "state": "WA"},{"name": "New York", "state": "NY"},{"name": "Bellevue", "state": "WA"},{"name": "Olympia", "state": "WA"}]}
 
 const REGISTRY_URL = 'https://www.npmjs.com';
