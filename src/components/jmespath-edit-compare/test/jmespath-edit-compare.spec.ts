@@ -17,9 +17,9 @@ describe('jmespath-edit-compare', () => {
 
   describe('render', () => {
     it('renders default datasource and query', () => {
-      expect((rootEl.querySelector('.expression div input') as HTMLInputElement).value).toEqualText(``)
-      expect((rootEl.querySelector('.results .input div textarea') as HTMLTextAreaElement)).toEqualLightHtml(`<textarea value=\"\"></textarea>`)
-      expect((rootEl.querySelector('.results .output div pre') as HTMLPreElement)).toEqualText(``)
+      expect((rootEl.shadowRoot.querySelector('.expression div textarea') as HTMLTextAreaElement)).toEqualHtml('<textarea value=\"\"></textarea>')
+      expect((rootEl.shadowRoot.querySelector('.results .input div textarea') as HTMLTextAreaElement)).toEqualLightHtml('<textarea value=\"\"></textarea>')
+      expect((rootEl.shadowRoot.querySelector('.results .output div pre') as HTMLPreElement)).toEqualText('')
     });
 
     it('renders default datasource and query', async () => {
@@ -27,8 +27,8 @@ describe('jmespath-edit-compare', () => {
       rootEl.json = {"locations": [{"name": "Seattle", "state": "WA"},{"name": "New York", "state": "NY"},{"name": "Bellevue", "state": "WA"},{"name": "Olympia", "state": "WA"}]};
       await page.waitForChanges();
 
-      expect((rootEl.querySelector('.expression div input') as HTMLInputElement).value).toEqualText(`locations[?state == 'WA'].name | sort(@) | {WashingtonCities: join(', ', @)}`)
-      expect((rootEl.querySelector('.results .input div textarea') as HTMLTextAreaElement)).toEqualLightHtml(`<textarea value=\"{
+      expect(((rootEl.shadowRoot.querySelector('.expression > div > textarea') as HTMLTextAreaElement))).toEqualHtml(`<textarea value=\"locations[?state == 'WA'].name | sort(@) | {WashingtonCities: join(', ', @)}\"></textarea>`)
+      expect((rootEl.shadowRoot.querySelector('.results .input div textarea') as HTMLTextAreaElement)).toEqualLightHtml(`<textarea value=\"{
   &quot;locations&quot;: [
     {
       &quot;name&quot;: &quot;Seattle&quot;,
@@ -48,7 +48,7 @@ describe('jmespath-edit-compare', () => {
     }
   ]
 }\"></textarea>`)
-      expect((rootEl.querySelector('.results .output div pre') as HTMLPreElement)).toEqualText(`
+      expect((rootEl.shadowRoot.querySelector('.results .output div pre') as HTMLPreElement)).toEqualText(`
 {
   \"WashingtonCities\": \"Bellevue, Olympia, Seattle\"
 }`)
