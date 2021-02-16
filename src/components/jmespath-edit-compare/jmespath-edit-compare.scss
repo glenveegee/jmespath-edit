@@ -1,4 +1,4 @@
-jmespath-edit-compare {
+:host {
   /* Component styles go here */
   padding: 1%;
   width: 98%;
@@ -21,7 +21,7 @@ jmespath-edit-compare {
     margin-bottom: 20px;
     width: inherit;
 
-    & input {
+    & input, textarea {
       width: 100%;
       padding: 1%;
       box-sizing: border-box;

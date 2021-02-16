@@ -10,6 +10,7 @@ import { JSONValue } from '@metrichor/jmespath/dist/types';
 @Component({
   styleUrl: 'jmespath-edit-compare.scss',
   tag: 'jmespath-edit-compare',
+  shadow: true,
 })
 export class JmespathEdit implements ComponentInterface {
 
@@ -125,7 +126,7 @@ export class JmespathEdit implements ComponentInterface {
         <section class="expression">
           <h2>EXPRESSION</h2>
           <div>
-            <input type="text" value={currentExpression}
+            <textarea value={currentExpression}
             onInput={this.setExpression}
             />
           </div>
