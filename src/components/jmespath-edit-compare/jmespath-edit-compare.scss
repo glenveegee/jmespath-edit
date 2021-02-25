@@ -9,11 +9,23 @@
     flex: 1;
     & h2 {
       font-family: sans-serif;
+
+      > span {
+        display: block;
+        font-size: 0.8rem;
+        color: #666;
+
+        button {
+          position: absolute;
+          right: 2rem;
+          margin-top: -1rem;
+        }
+      }
     }
 
     & div * {
       font-family: Consolas, Monaco, Menlo, 'Courier New', monospace;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
@@ -35,39 +47,65 @@
     flex-direction: row;
 
     & section {
+      > div {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-width: 24rem;
 
-      & div {
-        // max-width: min-content;
-        // min-width: max-content;
-        // padding: 0 0.5rem;
-        width: calc(100% - 0.5rem);
-        height: 60vh;
-        box-sizing: border-box;
+        > .messages {
+          display: flex;
+          flex: 1;
+          flex-direction: row;
+          justify-content: flex-end;
+          padding-right: 1rem;
 
-        & pre,
-        & textarea {
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          overflow: auto;
-          width: inherit;
-          height: inherit;
-          padding: 0.5rem;
+          & .inputWarning {
+            padding: 0rem 0 0.3rem 1rem;
+            border-left: 4px solid goldenrod;
+            color: goldenrod;
+            max-height: 1rem;
+            flex: 1;
+          }
+
+          & button {
+            margin: 0.2rem 0.5rem;
+          }
         }
 
-        .inputWarning {
-          padding: 0rem 0 0.3rem 1rem;
-          border-left: 4px solid goldenrod;
-          color: goldenrod;
-          max-height: 1rem;
+        > .document-view {
+          // max-width: min-content;
+          // min-width: max-content;
+          // padding: 0 0.5rem;
+          width: calc(100% - 0.5rem);
+          max-width: calc(100% - 0.5rem);
+          height: 60vh;
+          box-sizing: border-box;
+
+          & pre,
+          & textarea {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: auto;
+            width: inherit;
+            height: inherit;
+            padding: 0.5rem;
+            white-space: pre-wrap;
+          }
         }
       }
+
     }
   }
 
-  & .output div {
+  & .output div.document-view {
     // padding: 1vw;
     background-color: #eee;
     // box-sizing: content-box;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-break: break-all;
   }
 }

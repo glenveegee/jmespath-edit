@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jmespath-edit render renders default datasource and query 1`] = `
+<jmespath-edit>
+  <mock:shadow-root>
+    <section class="expression" part="expression">
+      <h2>
+        EXPRESSION
+      </h2>
+      <div><textarea value=""></textarea>
+      </div>
+    </section>
+    <div class="results" part="results">
+      <section class="input" part="results-input">
+        <h2>
+          SOURCE DATA
+        </h2>
+        <div><textarea value=""></textarea>
+        </div>
+      </section>
+      <section class="output" part="results-output">
+        <h2>
+          OUTPUT
+        </h2>
+        <div><pre></pre>
+        </div>
+      </section>
+    </div>
+  </mock:shadow-root>
+</jmespath-edit>
+`;
+
+exports[`jmespath-edit render renders default datasource and query 2`] = `null`;

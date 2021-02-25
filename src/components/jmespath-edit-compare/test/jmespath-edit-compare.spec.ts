@@ -18,7 +18,7 @@ describe('jmespath-edit-compare', () => {
   describe('render', () => {
     it('renders default datasource and query', () => {
       expect((rootEl.shadowRoot.querySelector('.expression div textarea') as HTMLTextAreaElement)).toEqualHtml('<textarea value=\"\"></textarea>')
-      expect((rootEl.shadowRoot.querySelector('.results .input div textarea') as HTMLTextAreaElement)).toEqualLightHtml('<textarea value=\"\"></textarea>')
+      expect((rootEl.shadowRoot.querySelector('.results .input div textarea') as HTMLTextAreaElement)).toEqualLightHtml('<textarea value=\"null\"></textarea>')
       expect((rootEl.shadowRoot.querySelector('.results .output div pre') as HTMLPreElement)).toEqualText('')
     });
 
@@ -48,10 +48,7 @@ describe('jmespath-edit-compare', () => {
     }
   ]
 }\"></textarea>`)
-      expect((rootEl.shadowRoot.querySelector('.results .output div pre') as HTMLPreElement)).toEqualText(`
-{
-  \"WashingtonCities\": \"Bellevue, Olympia, Seattle\"
-}`)
+      expect((rootEl.shadowRoot.querySelector('.results .output div pre') as HTMLPreElement)).toMatchSnapshot()
     });
   });
 });

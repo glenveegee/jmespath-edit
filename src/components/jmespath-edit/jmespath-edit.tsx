@@ -93,7 +93,7 @@ export class JmespathEdit implements ComponentInterface {
         <section class="expression" part="expression">
           <h2>EXPRESSION</h2>
           <div>
-            <input type="text" value={currentExpression}
+            <textarea value={currentExpression}
             onInput={this.setExpression}
             />
           </div>
