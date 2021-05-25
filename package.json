@@ -1,6 +1,6 @@
 {
   "name": "jmespath-edit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A JMESPath expression editor and preview web component",
   "author": {
     "name": "Glen van Ginkel"
@@ -29,21 +29,21 @@
     "build:prerender": "rm -rf ./www && stencil build --prerender"
   },
   "devDependencies": {
-    "@stencil/core": "^2.4.0",
+    "@stencil/core": "^2.5.2",
     "@stencil/sass": "^1.4.1",
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^26.0.23",
     "@types/puppeteer": "5.4.3",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "puppeteer": "7.0.4"
   },
   "peerDependencies": {
-    "@metrichor/jmespath": "^0.2.1"
+    "@metrichor/jmespath": "^0.3.0"
   },
   "dependencies": {
-    "@metrichor/jmespath-plus": "^0.4.1",
+    "@metrichor/jmespath-plus": "^0.5.2",
     "jmespath": "^0.15.0",
     "jmespath-plus": "^0.1.7",
-    "rxjs": "^6.6.3"
+    "rxjs": "^6.6.7"
   }
 }

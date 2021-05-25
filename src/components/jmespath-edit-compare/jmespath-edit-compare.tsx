@@ -5,7 +5,7 @@ import {query as JMESPathQuery} from '../../workers/jmespath.worker';
 import {query as JMESPathPlusQuery} from '../../workers/jmespath-plus.worker';
 import {query as MetrichorJMESPathPlusQuery} from '../../workers/metrichor-jmespath-plus.worker';
 import {query as MetrichorJMESPathQuery} from '../../workers/metrichor-jmespath.worker';
-import { JSONValue } from '@metrichor/jmespath/dist/types';
+import { JSONValue } from '@metrichor/jmespath-plus/dist/types';
 import { debounce, switchMap } from 'rxjs/operators';
 
 

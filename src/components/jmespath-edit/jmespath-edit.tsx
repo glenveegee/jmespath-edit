@@ -3,7 +3,7 @@ import { Component, ComponentInterface, State, Host, h, Prop, Watch } from '@ste
 import {BehaviorSubject, combineLatest, Subscription, from, of} from 'rxjs';
 import { filter, switchMap, catchError, tap } from 'rxjs/operators';
 import { query } from '../../utils/metrichor/jmespath-plus';
-import { JSONValue } from '@metrichor/jmespath/dist/types';
+import { JSONValue } from '@metrichor/jmespath-plus/dist/types';
 
 @Component({
   styleUrl: 'jmespath-edit.scss',
